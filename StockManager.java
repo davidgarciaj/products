@@ -37,6 +37,10 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        if(findProduct(id) != null){
+            findProduct(id).increaseQuantity(amount);
+        }
+        else{System.out.println("El id indicado no pertenece a ningún producto.");}
     }
     
     /**
@@ -68,7 +72,7 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        int cantidad = -1;
+        int cantidad = 0;
         if(findProduct(id) != null){
             cantidad = findProduct(id).getQuantity();
         }
