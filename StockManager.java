@@ -66,5 +66,11 @@ public class StockManager
      */
     public void printProductDetails()
     {
+        if(stock.size() > 0){
+            for(Product product: stock){
+                System.out.println(product);
+            }
+        }
+        else{System.out.println("Don´t have any products in stock.");}
     }
 }
