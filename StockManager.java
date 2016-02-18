@@ -26,7 +26,11 @@ public class StockManager
      */
     public void addProduct(Product item)
     {
-        stock.add(item);
+        Product product = findProduct(item.getID());
+        if(product == null){
+            stock.add(item);
+        }
+        else{System.out.println("This id is in use now");}
     }
     
     /**
@@ -90,5 +94,20 @@ public class StockManager
             }
         }
         else{System.out.println("Don´t have any products in stock.");}
+    }
+
+    /**
+     * Print details of all the products when his stock is under a given number.
+     */
+    public void underGivenNumberInStock(int number)
+    {
+        boolean isNotPrint = true;        
+        for(Product product: stock){
+            if(product.getQuantity() < number){
+                 System.out.println(product);
+                 isNotPrint = false; 
+            }
+        }
+        if(isNotPrint){System.out.println("Don´t have any products with stock under " + number + ".");}
     }
 }
