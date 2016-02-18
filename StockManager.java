@@ -110,4 +110,21 @@ public class StockManager
         }
         if(isNotPrint){System.out.println("Don´t have any products with stock under " + number + ".");}
     }
+    
+    /**
+     * Try to find a product in the stock with the given his name.
+     */
+    public Product findProduct(String name){
+        Product find = null;
+        boolean notFind = true;
+        int cont = 0;
+        while(cont < stock.size() && notFind){
+            if(stock.get(cont).getName().equals(name)){
+                find = stock.get(cont);
+                notFind = false;
+            }
+            cont++;
+        }
+        return find;
+    }
 }
